@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Shaheer Nawaz | Web Developer & SEO Specialist in Islamabad</title>
+<meta name="description" content="Professional web developer and SEO specialist helping businesses grow with modern websites, SEO optimization, and high-performance digital experiences in Islamabad, Pakistan.">
+<meta name="keywords" content="Web Developer in Islamabad, SEO Expert in Pakistan, Website Developer, Freelance Web Developer, Business Website Design, Modern Website Development, SEO Services Islamabad, Google Ranking Expert, Portfolio Website Developer">
+<meta property="og:title" content="Muhammad Shaheer Nawaz | Web Developer & SEO Specialist in Islamabad">
+<meta property="og:description" content="Professional web developer and SEO specialist helping businesses grow with modern websites, SEO optimization, and high-performance digital experiences in Islamabad, Pakistan.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080B10;
+    --bg2: #0D1117;
+    --bg3: #111820;
+    --surface: rgba(255,255,255,0.04);
+    --surface2: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #F0F4FF;
+    --text2: #8899AA;
+    --text3: #5C6E82;
+    --blue: #2979FF;
+    --cyan: #00E5FF;
+    --purple: #7C4DFF;
+    --glow-blue: rgba(41,121,255,0.35);
+    --glow-cyan: rgba(0,229,255,0.2);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+  }
+  ::selection { background: var(--blue); color: #fff; }
+
+  /* CUSTOM CURSOR */
+  #cursor {
+    position: fixed; top: 0; left: 0;
+    width: 12px; height: 12px;
+    background: var(--cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: width .15s, height .15s, background .15s;
+    mix-blend-mode: screen;
+  }
+  #cursor-ring {
+    position: fixed; top: 0; left: 0;
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(0,229,255,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: transform .1s ease, width .2s, height .2s;
+  }
+  body:hover #cursor { opacity: 1; }
+
+  /* SCROLL PROGRESS */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    z-index: 1000;
+    width: 0%;
+    transition: width .1s;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 900;
+    padding: 0 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    background: rgba(8,11,16,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all .3s;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--cyan); }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: .88rem;
+    font-weight: 500;
+    letter-spacing: .02em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+  .nav-cta {
+    padding: .55rem 1.4rem;
+    background: transparent;
+    border: 1px solid var(--cyan);
+    color: var(--cyan) !important;
+    border-radius: 4px;
+    font-size: .85rem;
+    transition: background .2s, color .2s !important;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--cyan) !important; color: var(--bg) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-hamburger span { width: 24px; height: 2px; background: var(--text2); display: block; transition: .3s; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 100px 6% 60px;
+  }
+  #hero-canvas {
+    position: absolute; inset: 0;
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 760px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .35rem .9rem;
+    background: rgba(0,229,255,0.07);
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 100px;
+    font-size: .8rem;
+    color: var(--cyan);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    opacity: 0; animation: fadeUp .6s .2s forwards;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--cyan);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    opacity: 0; animation: fadeUp .7s .35s forwards;
+  }
+  .hero-title .line2 {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text2);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    opacity: 0; animation: fadeUp .7s .5s forwards;
+  }
+  .hero-type {
+    color: var(--cyan);
+    font-weight: 600;
+  }
+  .hero-btns {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    opacity: 0; animation: fadeUp .7s .65s forwards;
+  }
+  .btn-primary {
+    padding: .85rem 2rem;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: .5rem;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 0 30px rgba(41,121,255,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(41,121,255,0.5); }
+  .btn-outline {
+    padding: .85rem 2rem;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: .5rem;
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,229,255,0.05); }
+  .btn-ghost {
+    padding: .85rem 2rem;
+    background: rgba(0,229,255,0.08);
+    color: var(--cyan);
+    border: 1px solid rgba(0,229,255,0.25);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: .5rem;
+    transition: background .2s, box-shadow .2s;
+  }
+  .btn-ghost:hover { background: rgba(0,229,255,0.15); box-shadow: 0 0 20px rgba(0,229,255,0.2); }
+  .hero-tech-badges {
+    display: flex; flex-wrap: wrap; gap: .6rem;
+    margin-top: 3rem;
+    opacity: 0; animation: fadeUp .7s .8s forwards;
+  }
+  .tech-badge {
+    padding: .3rem .8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: .78rem;
+    color: var(--text3);
+    font-weight: 500;
+    transition: border-color .2s, color .2s;
+  }
+  .tech-badge:hover { border-color: var(--blue); color: var(--blue); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  /* SECTION BASE */
+  section { padding: 100px 6%; }
+  .section-label {
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--text2);
+    font-size: 1.05rem;
+    max-width: 540px;
+    line-height: 1.7;
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ABOUT */
+  #about { background: var(--bg2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .about-avatar-wrap {
+    position: relative;
+  }
+  .about-avatar {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--bg3), #1A2332);
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-avatar::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(41,121,255,0.15), rgba(0,229,255,0.05));
+  }
+  .about-avatar-glow {
+    position: absolute;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(41,121,255,0.4), transparent 70%);
+    bottom: -50px; right: -50px;
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: floatGlow 4s ease-in-out infinite;
+  }
+  @keyframes floatGlow { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,-20px)} }
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    transition: border-color .2s;
+  }
+  .stat-card:hover { border-color: var(--blue); }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label { font-size: .8rem; color: var(--text3); margin-top: .3rem; }
+  .about-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+  .about-text p { color: var(--text2); line-height: 1.8; margin-bottom: 1rem; }
+  .about-chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+  .chip {
+    padding: .35rem .9rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: .8rem;
+    color: var(--text2);
+    background: var(--surface);
+    transition: .2s;
+  }
+  .chip:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  /* SERVICES */
+  #services { background: var(--bg); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    transition: border-color .3s, transform .3s, box-shadow .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(41,121,255,0.06), transparent);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .service-card:hover { border-color: rgba(41,121,255,0.4); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, rgba(41,121,255,0.2), rgba(0,229,255,0.1));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(41,121,255,0.2);
+    transition: transform .3s;
+  }
+  .service-card:hover .service-icon { transform: scale(1.1) rotate(5deg); }
+  .service-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: .6rem;
+    color: var(--text);
+  }
+  .service-desc { font-size: .88rem; color: var(--text3); line-height: 1.6; }
+
+  /* TECH STACK */
+  #tech { background: var(--bg2); }
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.2rem;
+    margin-top: 4rem;
+  }
+  .tech-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem 1rem;
+    text-align: center;
+    transition: border-color .3s, transform .3s, box-shadow .3s;
+    cursor: default;
+  }
+  .tech-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(0,229,255,0.12);
+  }
+  .tech-emoji { font-size: 2.4rem; display: block; margin-bottom: .8rem; }
+  .tech-name {
+    font-family: var(--font-display);
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
+    gap: 1.8rem;
+    margin-top: 4rem;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+  }
+  .project-card:hover { transform: translateY(-8px); border-color: rgba(41,121,255,0.4); box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  .project-img {
+    height: 200px;
+    background: linear-gradient(135deg, var(--bg3), #1A2332);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(8,11,16,0.8));
+  }
+  .project-body { padding: 1.5rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+  .project-tag {
+    padding: .2rem .6rem;
+    background: rgba(41,121,255,0.12);
+    border-radius: 4px;
+    font-size: .75rem;
+    color: var(--blue);
+    font-weight: 600;
+  }
+  .project-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: .5rem;
+  }
+  .project-desc { font-size: .88rem; color: var(--text3); line-height: 1.6; margin-bottom: 1.2rem; }
+  .project-links { display: flex; gap: .8rem; }
+  .project-link {
+    padding: .45rem 1rem;
+    font-size: .82rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .2s;
+  }
+  .project-link.demo { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; }
+  .project-link.demo:hover { box-shadow: 0 0 20px rgba(41,121,255,0.4); }
+  .project-link.code { border: 1px solid var(--border2); color: var(--text2); background: transparent; }
+  .project-link.code:hover { border-color: var(--text2); color: var(--text); }
+
+  /* SEO SECTION */
+  #seo { background: var(--bg2); }
+  .seo-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .seo-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: .9rem; }
+  .seo-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color .2s;
+  }
+  .seo-item:hover { border-color: var(--cyan); }
+  .seo-item-icon {
+    width: 36px; height: 36px; min-width: 36px;
+    background: rgba(0,229,255,0.1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .seo-item-text strong { display: block; font-size: .9rem; margin-bottom: .2rem; }
+  .seo-item-text span { font-size: .82rem; color: var(--text3); }
+  .seo-visual {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .seo-visual::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,229,255,0.15), transparent 70%);
+    top: -100px; right: -100px;
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+  .seo-rank-label {
+    font-size: .78rem;
+    color: var(--text3);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .seo-bars { display: flex; flex-direction: column; gap: .8rem; }
+  .seo-bar-row { display: flex; align-items: center; gap: 1rem; }
+  .seo-bar-label { font-size: .83rem; color: var(--text2); width: 120px; min-width: 120px; }
+  .seo-bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .seo-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    width: 0;
+    transition: width 1.5s ease;
+  }
+  .seo-bar-val { font-size: .82rem; color: var(--cyan); font-weight: 600; width: 35px; text-align: right; }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--bg); overflow: hidden; }
+  .testimonials-track {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+    animation: scrollLeft 30s linear infinite;
+    width: max-content;
+  }
+  .testimonials-track:hover { animation-play-state: paused; }
+  @keyframes scrollLeft { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .testi-card {
+    min-width: 340px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.8rem;
+    backdrop-filter: blur(10px);
+    transition: border-color .2s;
+  }
+  .testi-card:hover { border-color: rgba(41,121,255,0.4); }
+  .testi-stars { color: #FFB300; font-size: .9rem; margin-bottom: 1rem; letter-spacing: .15em; }
+  .testi-text { font-size: .92rem; color: var(--text2); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: .9rem; }
+  .testi-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: .9rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .testi-name { font-weight: 600; font-size: .9rem; }
+  .testi-role { font-size: .78rem; color: var(--text3); }
+
+  /* BLOG */
+  #blog { background: var(--bg2); }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+  .blog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s;
+    cursor: pointer;
+  }
+  .blog-card:hover { transform: translateY(-5px); border-color: rgba(41,121,255,0.35); }
+  .blog-img {
+    height: 160px;
+    background: linear-gradient(135deg, #111820, #0D1A2B);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+  }
+  .blog-cat {
+    position: absolute; top: 12px; left: 12px;
+    padding: .2rem .7rem;
+    background: rgba(41,121,255,0.9);
+    border-radius: 4px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: #fff;
+  }
+  .blog-body { padding: 1.4rem; }
+  .blog-date { font-size: .78rem; color: var(--text3); margin-bottom: .6rem; }
+  .blog-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.35; margin-bottom: .6rem; }
+  .blog-excerpt { font-size: .85rem; color: var(--text3); line-height: 1.6; }
+  .blog-read { font-size: .82rem; color: var(--cyan); font-weight: 600; margin-top: .8rem; display: inline-block; }
+
+  /* FAQ */
+  #faq { background: var(--bg); }
+  .faq-wrap { max-width: 720px; margin: 4rem auto 0; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1.4rem 0;
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer;
+    gap: 1rem;
+    text-align: left;
+    transition: color .2s;
+  }
+  .faq-q:hover { color: var(--cyan); }
+  .faq-arrow {
+    width: 24px; height: 24px; min-width: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem;
+    transition: transform .3s, border-color .3s;
+    color: var(--text2);
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); border-color: var(--cyan); color: var(--cyan); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease, padding .3s;
+    color: var(--text2);
+    font-size: .93rem;
+    line-height: 1.7;
+    padding-bottom: 0;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.4rem; }
+
+  /* CONTACT */
+  #contact { background: var(--bg2); }
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 5rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+  .contact-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .contact-info p { color: var(--text2); line-height: 1.7; margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color .2s;
+  }
+  .contact-item:hover { border-color: var(--cyan); }
+  .contact-item-icon {
+    width: 38px; height: 38px; min-width: 38px;
+    background: rgba(41,121,255,0.12);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .contact-item-text small { display: block; font-size: .75rem; color: var(--text3); margin-bottom: .1rem; }
+  .contact-item-text span { font-size: .9rem; font-weight: 500; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: .5rem; }
+  .form-group label { font-size: .85rem; font-weight: 500; color: var(--text2); }
+  .form-group input, .form-group textarea, .form-group select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: .85rem 1rem;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: .93rem;
+    transition: border-color .2s;
+    outline: none;
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
+  .form-group textarea { min-height: 120px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn {
+    padding: .95rem;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow .2s, transform .2s;
+    box-shadow: 0 0 30px rgba(41,121,255,0.3);
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(41,121,255,0.5); }
+
+  /* FOOTER */
+  footer {
+    background: #050709;
+    border-top: 1px solid var(--border);
+    padding: 4rem 6% 2.5rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: .8rem;
+    letter-spacing: -0.02em;
+  }
+  .footer-brand-name span { color: var(--cyan); }
+  .footer-tagline { color: var(--text3); font-size: .88rem; line-height: 1.6; max-width: 260px; margin-bottom: 1.5rem; }
+  .footer-social { display: flex; gap: .7rem; }
+  .social-btn {
+    width: 38px; height: 38px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    color: var(--text2);
+    font-size: 1rem;
+    transition: border-color .2s, color .2s;
+  }
+  .social-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+  .footer-col h4 {
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 1.2rem;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+  .footer-links a { text-decoration: none; color: var(--text2); font-size: .88rem; transition: color .2s; }
+  .footer-links a:hover { color: var(--cyan); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-copy { font-size: .83rem; color: var(--text3); }
+  .footer-copy span { color: var(--cyan); }
+
+  /* FLOATING WA */
+  #wa-float {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    z-index: 800;
+    width: 54px; height: 54px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform .2s, box-shadow .2s;
+    animation: bounceIn .6s 1s both;
+  }
+  #wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+  @keyframes bounceIn { from{opacity:0;transform:scale(.5)} to{opacity:1;transform:scale(1)} }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    display: none;
+    position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+    background: rgba(8,11,16,0.97);
+    backdrop-filter: blur(20px);
+    z-index: 850;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .mobile-nav a:hover { color: var(--cyan); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .about-grid, .seo-wrap, .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .about-avatar { max-width: 320px; margin: 0 auto; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
+    .stats-row { grid-template-columns: repeat(3,1fr); }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+
+  /* GRADIENT DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border2), transparent);
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Shaheer<span>.</span>dev</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#seo">SEO</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="toggleMobileNav()">About</a>
+  <a href="#services" onclick="toggleMobileNav()">Services</a>
+  <a href="#projects" onclick="toggleMobileNav()">Projects</a>
+  <a href="#seo" onclick="toggleMobileNav()">SEO</a>
+  <a href="#contact" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge">📍 Islamabad, Pakistan — Available for Projects</div>
+    <h1 class="hero-title">
+      Muhammad<br>
+      <span class="line2">Shaheer Nawaz</span>
+    </h1>
+    <p class="hero-sub">
+      Creative Web Developer &amp; SEO Specialist — helping businesses grow online with modern websites, performance-optimized code, and strategic <span class="hero-type" id="typed-text"></span>
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">🚀 View Projects</a>
+      <a href="#seo" class="btn-ghost">📊 Free SEO Audit</a>
+      <a href="#contact" class="btn-outline">💬 Contact Me</a>
+    </div>
+    <div class="hero-tech-badges">
+      <span class="tech-badge">HTML / CSS</span>
+      <span class="tech-badge">JavaScript</span>
+      <span class="tech-badge">MongoDB</span>
+      <span class="tech-badge">SEO Optimization</span>
+      <span class="tech-badge">Responsive Design</span>
+      <span class="tech-badge">Performance</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">Developer. Problem Solver.<br>Digital Growth Partner.</h2>
+  </div>
+  <div class="about-grid">
+    <div class="reveal" style="transition-delay:.1s">
+      <div class="about-avatar-wrap">
+        <div class="about-avatar">👨‍💻</div>
+        <div class="about-avatar-glow"></div>
+      </div>
+      <div class="stats-row" style="margin-top:2rem">
+        <div class="stat-card"><div class="stat-num counter" data-target="20">0</div><div class="stat-label">Projects Done</div></div>
+        <div class="stat-card"><div class="stat-num counter" data-target="15">0</div><div class="stat-label">Happy Clients</div></div>
+        <div class="stat-card"><div class="stat-num counter" data-target="2">0</div><div class="stat-label">Years Experience</div></div>
+      </div>
+    </div>
+    <div class="about-text reveal" style="transition-delay:.2s">
+      <h3>Turning Ideas Into High-Performance Digital Experiences</h3>
+      <p>I'm a BSCS student, web developer, and SEO specialist based in Islamabad, Pakistan. My mission is simple: help businesses establish a powerful online presence that actually converts visitors into customers.</p>
+      <p>I combine clean, modern code with strategic SEO thinking — so every website I build isn't just beautiful, it's built to rank, load fast, and grow your business on Google.</p>
+      <p>Whether you're a local business needing your first professional website, or a growing brand that wants to dominate search results, I bring the same discipline, creativity, and technical precision to every project.</p>
+      <div class="about-chips">
+        <span class="chip">Clean Code</span>
+        <span class="chip">SEO-First Approach</span>
+        <span class="chip">Mobile-Optimized</span>
+        <span class="chip">Fast Delivery</span>
+        <span class="chip">Business-Focused</span>
+        <span class="chip">Islamabad, PK</span>
+      </div>
+      <div style="margin-top:2rem">
+        <a href="#contact" class="btn-primary">Let's Work Together →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal" style="text-align:center">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title">Services Built for<br>Business Growth</h2>
+    <p class="section-sub" style="margin:0 auto">Every service is designed to help your business look professional, rank on Google, and convert visitors into loyal customers.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🌐</div>
+      <div class="service-name">Custom Website Development</div>
+      <p class="service-desc">Hand-coded, pixel-perfect websites tailored to your brand. Fast, clean, and built to impress from the first scroll.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.05s">
+      <div class="service-icon">📈</div>
+      <div class="service-name">SEO Optimization</div>
+      <p class="service-desc">Strategic on-page and technical SEO to help your business rank higher on Google and attract organic traffic consistently.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.1s">
+      <div class="service-icon">📱</div>
+      <div class="service-name">Responsive Web Design</div>
+      <p class="service-desc">Every website I build looks and works flawlessly on mobile, tablet, and desktop — because 60%+ of traffic is mobile.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.15s">
+      <div class="service-icon">🏢</div>
+      <div class="service-name">Business Websites</div>
+      <p class="service-desc">Professional websites for local and growing businesses that build trust, showcase services, and drive customer inquiries.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.2s">
+      <div class="service-icon">⚡</div>
+      <div class="service-name">Performance Optimization</div>
+      <p class="service-desc">Speed matters for SEO and conversions. I optimize load times, Core Web Vitals, and overall site performance.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.25s">
+      <div class="service-icon">🎯</div>
+      <div class="service-name">Landing Page Design</div>
+      <p class="service-desc">High-converting landing pages crafted to capture leads, promote offers, and drive real business results.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.3s">
+      <div class="service-icon">🗂️</div>
+      <div class="service-name">Portfolio Websites</div>
+      <p class="service-desc">Creative, modern portfolio sites for professionals, freelancers, and agencies that want to stand out and win clients.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.35s">
+      <div class="service-icon">🔍</div>
+      <div class="service-name">Google Ranking Strategy</div>
+      <p class="service-desc">Comprehensive Google ranking plans including keyword research, content strategy, and technical SEO implementation.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.4s">
+      <div class="service-icon">🛠️</div>
+      <div class="service-name">Website Maintenance</div>
+      <p class="service-desc">Ongoing support, updates, security monitoring, and improvements to keep your website running at peak performance.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.45s">
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Modern UI/UX Development</div>
+      <p class="service-desc">Beautiful, intuitive user interfaces that deliver exceptional experiences and keep visitors engaged longer.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TECH STACK -->
+<section id="tech">
+  <div class="reveal" style="text-align:center">
+    <p class="section-label">Technology</p>
+    <h2 class="section-title">My Tech Stack</h2>
+    <p class="section-sub" style="margin:0 auto">Tools and technologies I use to build powerful, modern digital products.</p>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card reveal"><span class="tech-emoji">🔶</span><div class="tech-name">HTML5</div></div>
+    <div class="tech-card reveal" style="transition-delay:.05s"><span class="tech-emoji">🎨</span><div class="tech-name">CSS3</div></div>
+    <div class="tech-card reveal" style="transition-delay:.1s"><span class="tech-emoji">🟨</span><div class="tech-name">JavaScript</div></div>
+    <div class="tech-card reveal" style="transition-delay:.15s"><span class="tech-emoji">🍃</span><div class="tech-name">MongoDB</div></div>
+    <div class="tech-card reveal" style="transition-delay:.2s"><span class="tech-emoji">📊</span><div class="tech-name">SEO Tools</div></div>
+    <div class="tech-card reveal" style="transition-delay:.25s"><span class="tech-emoji">⚡</span><div class="tech-name">Performance</div></div>
+    <div class="tech-card reveal" style="transition-delay:.3s"><span class="tech-emoji">📱</span><div class="tech-name">Responsive</div></div>
+    <div class="tech-card reveal" style="transition-delay:.35s"><span class="tech-emoji">🔧</span><div class="tech-name">Dev Tools</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-title">Recent Projects</h2>
+    <p class="section-sub">A selection of websites and digital products built for real clients and personal projects.</p>
+  </div>
+  <div class="projects-grid" style="margin-top:4rem">
+    <div class="project-card reveal">
+      <div class="project-img">🏪</div>
+      <div class="project-body">
+        <div class="project-tags"><span class="project-tag">HTML/CSS</span><span class="project-tag">SEO</span></div>
+        <div class="project-name">Local Business Website</div>
+        <p class="project-desc">A fully responsive business website for a retail shop in Islamabad with on-page SEO, Google Maps integration, and WhatsApp contact.</p>
+        <div class="project-links">
+          <a href="#" class="project-link demo">Live Preview</a>
+          <a href="#" class="project-link code">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:.1s">
+      <div class="project-img">💼</div>
+      <div class="project-body">
+        <div class="project-tags"><span class="project-tag">Portfolio</span><span class="project-tag">Animation</span></div>
+        <div class="project-name">Creative Portfolio Site</div>
+        <p class="project-desc">A premium animated portfolio website for a Pakistani designer featuring smooth transitions, dark aesthetic, and mobile-first layout.</p>
+        <div class="project-links">
+          <a href="#" class="project-link demo">Live Preview</a>
+          <a href="#" class="project-link code">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:.2s">
+      <div class="project-img">🌿</div>
+      <div class="project-body">
+        <div class="project-tags"><span class="project-tag">Landing Page</span><span class="project-tag">SEO</span></div>
+        <div class="project-name">SEO-Optimized Landing Page</div>
+        <p class="project-desc">High-converting landing page for a health supplement brand, targeting local keywords with technical SEO and fast load performance.</p>
+        <div class="project-links">
+          <a href="#" class="project-link demo">Live Preview</a>
+          <a href="#" class="project-link code">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEO SECTION -->
+<section id="seo">
+  <div class="reveal" style="text-align:center">
+    <p class="section-label">SEO Services</p>
+    <h2 class="section-title">Rank Higher on Google<br>with Modern SEO Strategies</h2>
+    <p class="section-sub" style="margin:0 auto">I don't just build websites — I build websites that Google loves and customers find.</p>
+  </div>
+  <div class="seo-wrap">
+    <ul class="seo-list reveal">
+      <li class="seo-item">
+        <div class="seo-item-icon">🔑</div>
+        <div class="seo-item-text"><strong>Keyword Optimization</strong><span>Target the right keywords your customers are already searching for.</span></div>
+      </li>
+      <li class="seo-item">
+        <div class="seo-item-icon">⚙️</div>
+        <div class="seo-item-text"><strong>Technical SEO</strong><span>Schema markup, sitemaps, robots.txt, and clean URL structures.</span></div>
+      </li>
+      <li class="seo-item">
+        <div class="seo-item-icon">⚡</div>
+        <div class="seo-item-text"><strong>Fast Loading Websites</strong><span>Page speed is a Google ranking factor — I optimize every millisecond.</span></div>
+      </li>
+      <li class="seo-item">
+        <div class="seo-item-icon">📱</div>
+        <div class="seo-item-text"><strong>Mobile Optimization</strong><span>Mobile-first indexing means your mobile experience determines your ranking.</span></div>
+      </li>
+      <li class="seo-item">
+        <div class="seo-item-icon">📍</div>
+        <div class="seo-item-text"><strong>Local SEO</strong><span>Rank in Google Maps and local search results for Islamabad and Pakistan.</span></div>
+      </li>
+      <li class="seo-item">
+        <div class="seo-item-icon">📊</div>
+        <div class="seo-item-text"><strong>Google Indexing</strong><span>Ensure your pages are properly crawled and indexed by Google.</span></div>
+      </li>
+    </ul>
+    <div class="seo-visual reveal" style="transition-delay:.2s">
+      <div class="seo-rank-label">SEO Performance Metrics</div>
+      <div class="seo-bars" id="seo-bars">
+        <div class="seo-bar-row"><div class="seo-bar-label">Page Speed</div><div class="seo-bar-track"><div class="seo-bar-fill" data-width="94"></div></div><div class="seo-bar-val">94</div></div>
+        <div class="seo-bar-row"><div class="seo-bar-label">On-Page SEO</div><div class="seo-bar-track"><div class="seo-bar-fill" data-width="91"></div></div><div class="seo-bar-val">91</div></div>
+        <div class="seo-bar-row"><div class="seo-bar-label">Mobile Score</div><div class="seo-bar-track"><div class="seo-bar-fill" data-width="97"></div></div><div class="seo-bar-val">97</div></div>
+        <div class="seo-bar-row"><div class="seo-bar-label">Accessibility</div><div class="seo-bar-track"><div class="seo-bar-fill" data-width="88"></div></div><div class="seo-bar-val">88</div></div>
+        <div class="seo-bar-row"><div class="seo-bar-label">Best Practices</div><div class="seo-bar-track"><div class="seo-bar-fill" data-width="95"></div></div><div class="seo-bar-val">95</div></div>
+      </div>
+      <div style="margin-top:2rem">
+        <a href="#contact" class="btn-ghost" style="width:100%;justify-content:center;display:flex">📊 Get Free SEO Audit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal" style="text-align:center">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title">What Clients Say</h2>
+  </div>
+  <div style="overflow:hidden; margin-top:3.5rem">
+    <div class="testimonials-track" id="testimonialsTrack"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="reveal">
+    <p class="section-label">Blog & Insights</p>
+    <h2 class="section-title">SEO & Web Dev<br>Knowledge Base</h2>
+    <p class="section-sub">Practical tips to help businesses grow online — from Google ranking strategies to modern web design trends.</p>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card reveal">
+      <div class="blog-img">📈<div class="blog-cat">SEO</div></div>
+      <div class="blog-body">
+        <div class="blog-date">May 2025 · 5 min read</div>
+        <div class="blog-title">How to Rank on Google in 2025: A Practical Guide for Pakistani Businesses</div>
+        <div class="blog-excerpt">Actionable SEO strategies specifically for businesses in Islamabad and Pakistan to appear on the first page of Google.</div>
+        <span class="blog-read">Read Article →</span>
+      </div>
+    </div>
+    <div class="blog-card reveal" style="transition-delay:.1s">
+      <div class="blog-img">💡<div class="blog-cat">Web Dev</div></div>
+      <div class="blog-body">
+        <div class="blog-date">Apr 2025 · 4 min read</div>
+        <div class="blog-title">Why Every Business Needs a Professional Website in 2025</div>
+        <div class="blog-excerpt">Without a website, you're invisible to 90%+ of customers who search online before making purchase decisions.</div>
+        <span class="blog-read">Read Article →</span>
+      </div>
+    </div>
+    <div class="blog-card reveal" style="transition-delay:.2s">
+      <div class="blog-img">🎨<div class="blog-cat">Design</div></div>
+      <div class="blog-body">
+        <div class="blog-date">Mar 2025 · 6 min read</div>
+        <div class="blog-title">Modern Website Design Trends That Drive Business Results in 2025</div>
+        <div class="blog-excerpt">From dark mode to micro-animations, discover the design trends that improve user engagement and conversion rates.</div>
+        <span class="blog-read">Read Article →</span>
+      </div>
+    </div>
+    <div class="blog-card reveal" style="transition-delay:.3s">
+      <div class="blog-img">🔍<div class="blog-cat">SEO Tips</div></div>
+      <div class="blog-body">
+        <div class="blog-date">Feb 2025 · 4 min read</div>
+        <div class="blog-title">5 SEO Mistakes That Are Killing Your Google Rankings</div>
+        <div class="blog-excerpt">Common on-page and technical SEO errors that prevent your website from reaching its full potential on search engines.</div>
+        <span class="blog-read">Read Article →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="reveal" style="text-align:center">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Common Questions</h2>
+    <p class="section-sub" style="margin:0 auto">Everything you need to know before starting your project.</p>
+  </div>
+  <div class="faq-wrap reveal">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How much does a website cost? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Website pricing depends on your requirements — a basic business website starts at a very affordable rate for Pakistani businesses. Landing pages, portfolios, and e-commerce sites vary in complexity. Contact me with your project details and I'll provide a transparent, competitive quote with no hidden fees.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How long does development take? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Most projects are completed within 1–3 weeks depending on complexity. A simple business website typically takes 5–7 days. Landing pages can be ready in 3–4 days. I always give a realistic timeline upfront and stick to it — on-time delivery is a priority for me.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do you provide SEO with websites? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Yes! Every website I build includes on-page SEO fundamentals — semantic HTML, proper heading structure, meta tags, Open Graph tags, schema markup, fast loading, and mobile optimization. I also offer dedicated SEO audits and monthly SEO strategies as a separate service.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Will my website be mobile-friendly? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Absolutely — mobile-first design is non-negotiable. Every website I build is fully responsive and tested on multiple screen sizes and devices. With over 60% of traffic coming from mobile, a bad mobile experience means lost customers and lower Google rankings.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can you redesign my existing website? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Yes, I love website redesign projects! Whether your current site looks outdated, loads slowly, or isn't performing on Google, I can rebuild it from the ground up with modern design, better SEO, and improved performance — while keeping your brand identity intact.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do you help businesses rank on Google? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Yes — SEO is one of my core services. I help businesses in Islamabad and across Pakistan rank higher on Google through keyword research, on-page optimization, technical SEO, and Google-friendly content strategies. I also offer a free initial SEO audit so you can see exactly where your website stands.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal" style="text-align:center">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Let's Build Something<br>Great Together</h2>
+    <p class="section-sub" style="margin:0 auto">Ready to launch your website or improve your Google rankings? Reach out — I usually respond within a few hours.</p>
+  </div>
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <h3>Contact Information</h3>
+      <p>Based in Islamabad, Pakistan. Available for freelance projects, business websites, SEO consulting, and long-term collaborations.</p>
+      <div class="contact-items">
+        <a href="tel:03178820153" class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text"><small>Phone</small><span>0317 882 0153</span></div>
+        </a>
+        <a href="https://wa.me/923023809705" target="_blank" class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div class="contact-item-text"><small>WhatsApp</small><span>0302 380 9705</span></div>
+        </a>
+        <a href="mailto:nawazshaheer66@gmail.com" class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text"><small>Email</small><span>nawazshaheer66@gmail.com</span></div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text"><small>Location</small><span>Islamabad, Pakistan</span></div>
+        </div>
+      </div>
+      <div style="margin-top:2rem">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106215.67779956657!2d72.8240879!3d33.6007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6789ef6c6e5505f!2sIslamabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+          width="100%" height="200" style="border:0; border-radius:10px; opacity:.8" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <div class="contact-form reveal" style="transition-delay:.15s">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Muhammad Ali" /></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com" /></div>
+      </div>
+      <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="+92 300 000 0000" /></div>
+      <div class="form-group">
+        <label>Service Required</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Custom Website Development</option>
+          <option>SEO Optimization</option>
+          <option>Landing Page Design</option>
+          <option>Website Redesign</option>
+          <option>Portfolio Website</option>
+          <option>Website Maintenance</option>
+          <option>Free SEO Audit</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Project Details</label><textarea placeholder="Tell me about your project, business, and goals..."></textarea></div>
+      <button class="submit-btn" onclick="handleSubmit()">🚀 Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Shaheer<span>DevAndDigital</span></div>
+      <p class="footer-tagline">Building modern websites that help businesses grow online — based in Islamabad, serving clients across Pakistan.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/923023809705" target="_blank" class="social-btn">💬</a>
+        <a href="mailto:nawazshaheer66@gmail.com" class="social-btn">✉️</a>
+        <a href="#" class="social-btn">📸</a>
+        <a href="#" class="social-btn">💼</a>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Website Development</a></li>
+        <li><a href="#seo">SEO Optimization</a></li>
+        <li><a href="#services">Landing Pages</a></li>
+        <li><a href="#services">Business Websites</a></li>
+        <li><a href="#services">Web Maintenance</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="tel:03178820153">📞 0317 882 0153</a></li>
+        <li><a href="https://wa.me/923023809705">💬 WhatsApp</a></li>
+        <li><a href="mailto:nawazshaheer66@gmail.com">✉️ Email Me</a></li>
+        <li><a href="#contact">📍 Islamabad, PK</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 <span>Muhammad Shaheer Nawaz</span> · ShaheerDevAndDigital. All rights reserved.</div>
+    <div class="footer-copy">Web Developer & SEO Specialist in Islamabad, Pakistan</div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/923023809705" target="_blank" id="wa-float" title="Chat on WhatsApp">💬</a>
+
+<script>
+// CUSTOM CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 80);
+});
+document.querySelectorAll('a, button, .service-card, .tech-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; ring.style.width = '50px'; ring.style.height = '50px'; });
+  el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; ring.style.width = '36px'; ring.style.height = '36px'; });
+});
+
+// SCROLL PROGRESS
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = p + '%';
+});
+
+// REVEAL ON SCROLL
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+// HERO CANVAS PARTICLES
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const PARTICLES = [];
+for (let i = 0; i < 80; i++) {
+  PARTICLES.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - .5) * .4,
+    vy: (Math.random() - .5) * .4,
+    r: Math.random() * 1.5 + .5,
+    a: Math.random() * .6 + .1
+  });
+}
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  PARTICLES.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(0,229,255,${p.a})`;
+    ctx.fill();
+  });
+  // Connect nearby particles
+  PARTICLES.forEach((a, i) => {
+    PARTICLES.slice(i+1).forEach(b => {
+      const d = Math.hypot(a.x-b.x, a.y-b.y);
+      if (d < 120) {
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(41,121,255,${0.12*(1-d/120)})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    });
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+// TYPING ANIMATION
+const words = ['SEO strategies.', 'digital experiences.', 'Google rankings.', 'web solutions.'];
+let wi = 0, ci = 0, del = false;
+const typed = document.getElementById('typed-text');
+function typeLoop() {
+  const w = words[wi];
+  typed.textContent = del ? w.slice(0, ci--) : w.slice(0, ci++);
+  if (!del && ci > w.length) { del = true; setTimeout(typeLoop, 1800); return; }
+  if (del && ci < 0) { del = false; wi = (wi+1) % words.length; ci = 0; }
+  setTimeout(typeLoop, del ? 50 : 80);
+}
+typeLoop();
+
+// COUNTER ANIMATION
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  let curr = 0;
+  const step = target / 40;
+  const t = setInterval(() => {
+    curr = Math.min(curr + step, target);
+    el.textContent = Math.floor(curr) + '+';
+    if (curr >= target) clearInterval(t);
+  }, 40);
+}
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
+  });
+}, { threshold: .5 });
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+// SEO BARS ANIMATION
+const seoObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.seo-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      seoObs.unobserve(e.target);
+    }
+  });
+}, { threshold: .3 });
+const seoBars = document.getElementById('seo-bars');
+if (seoBars) seoObs.observe(seoBars.closest('.seo-visual'));
+
+// TESTIMONIALS
+const testimonialsData = [
+  { text: "Shaheer built our restaurant's website from scratch — it looks incredible and we're now getting calls directly from Google. Highly recommend!", name: "Ahmed Raza", role: "Restaurant Owner, Islamabad", init: "AR" },
+  { text: "Very professional developer. Delivered on time, communicated throughout, and the SEO improvements are already showing results on Google.", name: "Fatima Malik", role: "Clothing Brand, Rawalpindi", init: "FM" },
+  { text: "Our old website was embarrassing. Shaheer redesigned it completely — now it looks like a premium brand website. Clients compliment it constantly.", name: "Usman Tariq", role: "Consultancy Firm, Islamabad", init: "UT" },
+  { text: "Got a landing page for my new service and within 2 weeks we started getting organic leads from Google. The SEO work was worth every rupee!", name: "Sara Khan", role: "Freelance Coach, Pakistan", init: "SK" },
+  { text: "Exceptional attention to detail and great communication. The website is fast, mobile-friendly, and exactly what we envisioned. 10/10.", name: "Bilal Chaudhry", role: "Tech Startup, Islamabad", init: "BC" },
+  { text: "Shaheer doesn't just code — he thinks about your business goals. The site he built converted way better than our previous one. Really impressive.", name: "Nadia Hussain", role: "Online Store, Lahore", init: "NH" },
+];
+const track = document.getElementById('testimonialsTrack');
+[...testimonialsData, ...testimonialsData].forEach(t => {
+  track.innerHTML += `<div class="testi-card">
+    <div class="testi-stars">★★★★★</div>
+    <p class="testi-text">"${t.text}"</p>
+    <div class="testi-author">
+      <div class="testi-avatar">${t.init}</div>
+      <div><div class="testi-name">${t.name}</div><div class="testi-role">${t.role}</div></div>
+    </div>
+  </div>`;
+});
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// MOBILE NAV
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// FORM SUBMIT
+function handleSubmit() {
+  alert('Thank you for reaching out! I\'ll get back to you within a few hours.\n\nFor urgent queries, WhatsApp me at 0302 380 9705 😊');
+}
+</script>
+</body>
+</html>
